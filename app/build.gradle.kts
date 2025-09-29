@@ -54,7 +54,6 @@ android {
 
 dependencies {
     implementation("androidx.core:core-ktx:1.17.0")
-    implementation("androidx.work:work-runtime:2.10.5")
 
     compileOnly("de.robv.android.xposed:api:82")
 

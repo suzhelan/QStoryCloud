@@ -1,7 +1,6 @@
 package top.suzhelan.task
 
 import android.content.Context
-import androidx.work.WorkManager
 import de.robv.android.xposed.XposedBridge
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.GlobalScope
@@ -40,7 +39,6 @@ class WorkRegularly(private val context: Context) {
     }
 
     private fun performTask() {
-        val downloadPath = HookEnv.getPath() + "/apk"
         val currentVersion = if (ModuleConfig.hasModuleInfo()) {
             ModuleConfig.getCurrentModuleInfo().versionCode
         } else {
@@ -50,6 +48,10 @@ class WorkRegularly(private val context: Context) {
         val hasUpdate = api.hasUpdate(currentVersion)
         if (hasUpdate.hasUpdate || hasUpdate.isForceUpdate) {
             val updateInfo = api.getUpdateInfo()
+            val downloadPath = HookEnv.getHostAppContext().getDir(
+                "qstory_cloud_oat",
+                Context.MODE_PRIVATE
+            ).absolutePath + "/" + updateInfo.fileName
             ToastTool.show("正在更新到${updateInfo.versionName}")
             api.download(context, updateInfo, downloadPath) { isSuccess ->
                 if (isSuccess) {
@@ -75,6 +77,5 @@ class WorkRegularly(private val context: Context) {
             updateLog = updateInfo.updateLog
         )
         ModuleConfig.setCurrentModuleInfo(moduleInfo)
-        WorkManager.getInstance(context).cancelAllWork()
     }
 }

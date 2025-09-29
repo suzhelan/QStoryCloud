@@ -69,7 +69,7 @@ class ModuleLoader {
      * @param pluginApkPath 模块apk路径
      */
     private fun loadModuleAPKAndHook(pluginApkPath: String) {
-        val optimizedDirectoryFile = File(HookEnv.getHostAppContext().getDir("qstory_cloud_data", Context.MODE_PRIVATE).absolutePath)
+        val optimizedDirectoryFile = File(HookEnv.getHostAppContext().getDir("qstory_cloud_oat", Context.MODE_PRIVATE).absolutePath)
         // 构建插件的DexClassLoader类加载器，参数：
         // 1、包含dex的apk文件或jar文件的路径，
         // 2、apk、jar解压缩生成dex存储的目录需要是data/data/包名/app_xxx的路径 一般通过context.getDir("dirName", Context.MODE_PRIVATE)获取
