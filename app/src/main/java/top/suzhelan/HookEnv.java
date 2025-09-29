@@ -1,25 +1,16 @@
-package top.linl.qstorycloud.hook;
+package top.suzhelan;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 
 import de.robv.android.xposed.callbacks.XC_LoadPackage;
 
+@SuppressLint("StaticFieldLeak")
 public class HookEnv {
     //目标包名 如果通用填.+
     private static final String targetPackageName = "com.tencent.mobileqq|com.tencent.tim";
-
-    public static XC_LoadPackage.LoadPackageParam getLoadPackageParam() {
-        return loadPackageParam;
-    }
-
-    public static void setLoadPackageParam(XC_LoadPackage.LoadPackageParam loadPackageParam) {
-        HookEnv.loadPackageParam = loadPackageParam;
-    }
-
-    private static XC_LoadPackage.LoadPackageParam loadPackageParam;
-
     /**
      * 当前宿主包名
      */
@@ -49,8 +40,25 @@ public class HookEnv {
      */
     private static Context hostAppContext;
 
+    /**
+     * 宿主加载参数
+     */
+    private static XC_LoadPackage.LoadPackageParam loadPackageParam;
+
+    public static XC_LoadPackage.LoadPackageParam getLoadPackageParam() {
+        return loadPackageParam;
+    }
+
+    public static void setLoadPackageParam(XC_LoadPackage.LoadPackageParam loadPackageParam) {
+        HookEnv.loadPackageParam = loadPackageParam;
+    }
+
     public static String getTargetPackageName() {
         return targetPackageName;
+    }
+
+    public static void setCurrentHostAppPackageName(String currentHostAppPackageName) {
+        HookEnv.currentHostAppPackageName = currentHostAppPackageName;
     }
 
     public static Context getHostAppContext() {
@@ -69,12 +77,9 @@ public class HookEnv {
         }
     }
 
+
     public static String getCurrentHostAppPackageName() {
         return currentHostAppPackageName;
-    }
-
-    public static void setCurrentHostAppPackageName(String currentHostAppPackageName) {
-        HookEnv.currentHostAppPackageName = currentHostAppPackageName;
     }
 
     public static String getModuleApkPath() {
@@ -119,5 +124,9 @@ public class HookEnv {
 
     public static void setProcessName(String processName) {
         HookEnv.processName = processName;
+    }
+
+    public static String getPath() {
+        return hostAppContext.getDataDir().getAbsolutePath() + "/QStoryCloud";
     }
 }

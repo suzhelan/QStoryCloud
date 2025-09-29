@@ -1,4 +1,4 @@
-package top.sacz.qstory.net.bean;
+package top.suzhelan.entity;
 
 
 import androidx.annotation.NonNull;

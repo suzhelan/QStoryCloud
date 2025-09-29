@@ -27,13 +27,14 @@ import okhttp3.FormBody;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-import top.linl.qstorycloud.BuildConfig;
-import top.linl.qstorycloud.R;
+
 import top.linl.qstorycloud.db.helper.CommonDBHelper;
 import top.linl.qstorycloud.log.QSLog;
 import top.linl.qstorycloud.util.TaskManager;
-import top.sacz.qstory.net.UpdateInfo;
-import top.sacz.qstory.net.bean.QSResult;
+import top.suzhelan.entity.QSResult;
+import top.suzhelan.entity.UpdateInfo;
+import top.suzhelan.qstorycloud.BuildConfig;
+import top.suzhelan.qstorycloud.R;
 
 
 public class MainFragment extends Fragment {

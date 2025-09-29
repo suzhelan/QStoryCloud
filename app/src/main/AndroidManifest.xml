@@ -23,7 +23,7 @@
         </activity>
 
         <provider
-            android:name=".provider.AppContentProvider"
+            android:name="top.linl.qstorycloud.provider.AppContentProvider"
             android:authorities="qstorycloud.linl.top"
             android:exported="true" />
 

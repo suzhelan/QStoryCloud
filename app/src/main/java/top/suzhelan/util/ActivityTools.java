@@ -1,4 +1,4 @@
-package top.linl.qstorycloud.hook.util;
+package top.suzhelan.util;
 
 import android.app.Activity;
 import android.app.ActivityManager;
@@ -12,8 +12,8 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
-import top.linl.qstorycloud.R;
-import top.linl.qstorycloud.hook.HookEnv;
+import top.suzhelan.HookEnv;
+import top.suzhelan.qstorycloud.R;
 
 
 public class ActivityTools {

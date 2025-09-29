@@ -20,7 +20,7 @@ import top.linl.qstorycloud.db.helper.CommonDBHelper;
  */
 public class AppContentProvider extends ContentProvider {
 
-    private static final String AUTHORITES = "qstorycloud.linl.top";
+    private static final String AUTHORITES = "qstorycloud.suzhelan.top";
     private static final int QUERY = 0x01; //查询操作编码
     private static final int CLEAN_DATA = 0x03;
     private static final int INSERT = 0x02; //插入操作编码

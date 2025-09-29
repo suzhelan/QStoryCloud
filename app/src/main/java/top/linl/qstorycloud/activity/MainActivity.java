@@ -7,9 +7,9 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import top.linl.qstorycloud.R;
 import top.linl.qstorycloud.activity.base.BaseActivity;
 import top.linl.qstorycloud.fragement.MainFragment;
+import top.suzhelan.qstorycloud.R;
 
 public class MainActivity extends BaseActivity {
     @Override
